@@ -35,45 +35,59 @@ namespace ProjetFilBleu_AppProduction
             var jsonString = @"{
             ""Id"": 1,
             ""Quantity"": 7,
-            ""Code"": ""P200"",
+            ""Code"": ""P1"",
             ""Recipe"": {
                 ""OperationId"": 1,
                 ""FirstComponent"": {
                     ""Id"": 2,
-                    ""Code"": ""P3300"",
+                    ""Code"": ""P2"",
                     ""Quantity"": 7,
                     ""Recipe"": {
                         ""OperationId"": 10,
                         ""FirstComponent"": {
                             ""Id"": 28,
                             ""Quantity"": 7,
-                            ""Code"": ""P200"",
+                            ""Code"": ""P4"",
                             ""Recipe"": null
                         },
                         ""SecondComponent"": {
-                            ""Id"": 18,
+                            ""Id"": 3,
                             ""Quantity"": 7,
-                            ""Code"": ""P200"",
-                            ""Recipe"": null
+                            ""Code"": ""P3"",
+                            ""Recipe"": {
+                                ""OperationId"": 10,
+                                ""FirstComponent"": {
+                                    ""Id"": 28,
+                                    ""Quantity"": 10,
+                                    ""Code"": ""P7"",
+                                    ""Recipe"": null
+                                },
+                                ""SecondComponent"": {
+                                    ""Id"": 18,
+                                    ""Quantity"": 7,
+                                    ""Code"": ""P6"",
+                                    ""Recipe"": null
+                                }
+                    }
                         }
                     }
                 },
                 ""SecondComponent"": {
                     ""Id"": 3,
-                    ""Code"": ""P998800"",
+                    ""Code"": ""P3"",
                     ""Quantity"": 6,
                     ""Recipe"": {
                         ""OperationId"": 10,
                         ""FirstComponent"": {
                             ""Id"": 28,
-                            ""Quantity"": 7,
-                            ""Code"": ""P200"",
+                            ""Quantity"": 10,
+                            ""Code"": ""P7"",
                             ""Recipe"": null
                         },
                         ""SecondComponent"": {
                             ""Id"": 18,
                             ""Quantity"": 7,
-                            ""Code"": ""P200"",
+                            ""Code"": ""P6"",
                             ""Recipe"": null
                         }
                     }
@@ -85,6 +99,7 @@ namespace ProjetFilBleu_AppProduction
 
             Dictionary<int, List<ArticleRecipeLayerElement>> dic = new Dictionary<int, List<ArticleRecipeLayerElement>>();
             dic = AlgorithmFunctions.AddLayerRecipes(recipeObject, dic);
+            List<string> logs = AlgorithmFunctions.LaunchProduction(dic);
 
             bool wait = false;
 
