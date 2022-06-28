@@ -5,9 +5,9 @@ using System.Text;
 
 namespace ProjetFilBleu_AppProduction.Functions
 {
-    class AlgorithmFunctions
+    static class AlgorithmFunctions
     {
-        public Dictionary<int, List<ArticleRecipeLayerElement>> AddLayerRecipes(ArticleProductionTreeElement articleProductionTreeElement, Dictionary<int, List<ArticleRecipeLayerElement>> recipeLayersDic, int layer = 1)
+        public static Dictionary<int, List<ArticleRecipeLayerElement>> AddLayerRecipes(ArticleProductionTreeElement articleProductionTreeElement, Dictionary<int, List<ArticleRecipeLayerElement>> recipeLayersDic, int layer = 1)
         {
             try
             {

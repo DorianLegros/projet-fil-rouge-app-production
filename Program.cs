@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
+using ProjetFilBleu_AppProduction.Classes;
+using ProjetFilBleu_AppProduction.Functions;
 
 namespace ProjetFilBleu_AppProduction
 {
@@ -32,54 +34,83 @@ namespace ProjetFilBleu_AppProduction
 
             var jsonString = @"{
             ""Id"": 1,
-            ""Quantite"": 7,
+            ""Quantity"": 7,
             ""Code"": ""P200"",
             ""Recipe"": {
-                ""Operation"": 1,
+                ""OperationId"": 1,
                 ""FirstComponent"": {
                     ""Id"": 2,
                     ""Code"": ""P3300"",
                     ""Quantity"": 7,
-                    ""Recipe"": null
+                    ""Recipe"": {
+                        ""OperationId"": 10,
+                        ""FirstComponent"": {
+                            ""Id"": 28,
+                            ""Quantity"": 7,
+                            ""Code"": ""P200"",
+                            ""Recipe"": null
+                        },
+                        ""SecondComponent"": {
+                            ""Id"": 18,
+                            ""Quantity"": 7,
+                            ""Code"": ""P200"",
+                            ""Recipe"": null
+                        }
+                    }
                 },
                 ""SecondComponent"": {
                     ""Id"": 3,
                     ""Code"": ""P998800"",
                     ""Quantity"": 6,
                     ""Recipe"": {
+                        ""OperationId"": 10,
                         ""FirstComponent"": {
+                            ""Id"": 28,
+                            ""Quantity"": 7,
+                            ""Code"": ""P200"",
+                            ""Recipe"": null
                         },
-                        ""SecondComponent"": null
+                        ""SecondComponent"": {
+                            ""Id"": 18,
+                            ""Quantity"": 7,
+                            ""Code"": ""P200"",
+                            ""Recipe"": null
+                        }
                     }
                 }
             }
         }";
 
-        var recipeObject = JsonSerializer.Deserialize<ArticleProductionTreeElement>(jsonString);
+            var recipeObject = JsonSerializer.Deserialize<ArticleProductionTreeElement>(jsonString);
 
-        // On crée un dictionnaire qui va contenir toutes les opérations
-        Dictionary<int, List<ArticleProductionTreeElement>> recipe =
-                new Dictionary<int, List<ArticleProductionTreeElement>>();
+            Dictionary<int, List<ArticleRecipeLayerElement>> dic = new Dictionary<int, List<ArticleRecipeLayerElement>>();
+            dic = AlgorithmFunctions.AddLayerRecipes(recipeObject, dic);
 
-            // Boucle sur recipeObject pour enregistrer les opérations dans le dictionnaire
-            foreach (var item in recipeObject.Recipe.Composant1.Recipe.Composant1)
-            {
-                if (recipe.ContainsKey(item.IdOperation))
-                {
-                    recipe[item.IdOperation].Add(item);
-                }
-                else
-                {
-                    recipe.Add(item.IdOperation, new List<ArticleProductionTreeElement> { item });
-                }
-            }
+            bool wait = false;
 
-        // afficher les recettes du dictionnaire
-        foreach (var item in recipe)
-        {
-            Console.WriteLine($"{item.Key} : {item.Value}");
+        //// On crée un dictionnaire qui va contenir toutes les opérations
+        //Dictionary<int, List<ArticleProductionTreeElement>> recipe =
+        //        new Dictionary<int, List<ArticleProductionTreeElement>>();
+
+            //    // Boucle sur recipeObject pour enregistrer les opérations dans le dictionnaire
+            //    foreach (var item in recipeObject.Recipe.Composant1.Recipe.Composant1)
+            //    {
+            //        if (recipe.ContainsKey(item.IdOperation))
+            //        {
+            //            recipe[item.IdOperation].Add(item);
+            //        }
+            //        else
+            //        {
+            //            recipe.Add(item.IdOperation, new List<ArticleProductionTreeElement> { item });
+            //        }
+            //    }
+
+            //// afficher les recettes du dictionnaire
+            //foreach (var item in recipe)
+            //{
+            //    Console.WriteLine($"{item.Key} : {item.Value}");
+            //}
         }
-    }
         
         // récusivité sur recipeObject pour enregistrer les opérations dans le dictionnaire
         
