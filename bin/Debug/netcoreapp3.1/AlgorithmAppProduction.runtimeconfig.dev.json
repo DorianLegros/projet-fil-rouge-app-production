@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\drath\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\drath\\.nuget\\packages"
+    ]
+  }
+}

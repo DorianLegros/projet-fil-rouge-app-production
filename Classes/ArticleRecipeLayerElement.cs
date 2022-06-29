@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ProjetFilBleu_AppProduction.Classes
+namespace AlgorithmAppProduction.Classes
 {
     class ArticleRecipeLayerElement
     {

@@ -1,18 +1,18 @@
-﻿namespace ProjetFilBleu_AppProduction
+﻿namespace AlgorithmAppProduction.Classes
 {
-    public class ArticleProductionTreeElement
+    public class ProductionTreeElement
     {
         public int Id { get; set; }
         public int Quantity { get; set; }
         public string Code { get; set; }
-        public ArticleProductionTreeElementRecipe Recipe { get; set; }
+        public ProductionTreeElementRecipe Recipe { get; set; }
         public bool Done { get; set; } = false;
     }
 
-    public class ArticleProductionTreeElementRecipe
+    public class ProductionTreeElementRecipe
     {
-        public ArticleProductionTreeElement FirstComponent { get; set; }
-        public ArticleProductionTreeElement SecondComponent { get; set; }
+        public ProductionTreeElement FirstComponent { get; set; }
+        public ProductionTreeElement SecondComponent { get; set; }
         public int? OperationId { get; set; }
     }
 }
