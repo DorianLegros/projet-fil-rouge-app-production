@@ -63,7 +63,7 @@ namespace AlgorithmAppProduction.Functions
                         foreach (var duplicatedRecipeLayerList in duplicatedRecipesLayerLists)
                             duplicatedRecipes.AddRange(duplicatedRecipeLayerList.Where(drecipe => drecipe.IdArticle == recipe.IdArticle));
 
-                        ProductionOrdersToSendOperation operation = new ProductionOrdersToSendOperation { codeArticle = recipe.Code, order = orderIndex, productQuantity = recipe.Quantity };
+                        ProductionOrdersToSendOperation operation = new ProductionOrdersToSendOperation { codeArticle = recipe.Code, order = orderIndex, productQuantity = duplicatedRecipes.Sum(r => r.Quantity) };
 
                         if (productionOrdersToSend.Any(pots => pots.codeWorkUnit == workUnitCode))
                             productionOrdersToSend.First(pots => pots.codeWorkUnit == workUnitCode).productOperations.Add(operation);
