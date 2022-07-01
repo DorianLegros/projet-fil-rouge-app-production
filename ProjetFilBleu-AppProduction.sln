@@ -1,9 +1,9 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetFilBleu-AppProduction", "ProjetFilBleu-AppProduction.csproj", "{32BCB1A2-C5EB-4778-80B5-4F1DB870006D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgorithmAppProduction", "AlgorithmAppProduction.csproj", "{7BD67FB0-24CB-4D3C-A335-441066B1B370}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +15,10 @@ Global
 		{32BCB1A2-C5EB-4778-80B5-4F1DB870006D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32BCB1A2-C5EB-4778-80B5-4F1DB870006D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32BCB1A2-C5EB-4778-80B5-4F1DB870006D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BD67FB0-24CB-4D3C-A335-441066B1B370}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BD67FB0-24CB-4D3C-A335-441066B1B370}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BD67FB0-24CB-4D3C-A335-441066B1B370}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BD67FB0-24CB-4D3C-A335-441066B1B370}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
